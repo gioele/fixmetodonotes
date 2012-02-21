@@ -1,0 +1,47 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fixmetodonote}
+
+% TODO: make \FIXME and \TODO references to an abstract \@NOTE[FIXME, marginmarker] function
+% TODO: add arbitrary commands like XXX
+% TODO: ability to disable notes \RequirePackage[disabled/enabled]{fixmetodonotes}
+% TODO: option to convert FIXME and FIXME(foo) into \FIXME{} and \FIXME{foo} ('F' as active character)
+% TODO: \listofnotes after maketitle or toc (\listof{FIXME}, \listof{TODO}, ...)
+
+\RequirePackage{graphicx}
+\RequirePackage{color}
+\RequirePackage{transparent}
+\RequirePackage{watermark}
+\RequirePackage{fix-cm}
+\RequirePackage[normalem]{ulem}
+
+\newcommand{\@HUGE}{\fontsize{100}{120}\selectfont}
+\newcommand{\@wmstyle}{\color{red}\transparent{0.1}\@HUGE}
+\newcommand{\@wmtext}{\textsc{DRAFT}}
+
+\newcommand{\@DRAFTwatermark}{%
+  \thiswatermark{%
+    \raisebox{-0.5\textheight}{%
+      \parbox{\linewidth}{%
+          \centering{\rotatebox{30}{\@wmstyle\@wmtext}%
+          }%
+      }%
+    }%
+  }%
+}
+
+\newcommand{\@marginmarker}[2]{\marginpar{\fbox{\color{#2}\textbf{#1}}}}
+\newcommand{\@inlinemarker}[2]{\fbox{\color{#2}\textbf{#1}}}
+
+\newcommand{\@FIXMEhighlight}[1]{\uwave{#1}}
+\newcommand{\@FIXMEmarker}{\@marginmarker{FIXME}{red}}
+\newcommand{\@FIXMEnote}[1]{\@FIXMEmarker\@FIXMEhighlight{#1}}
+\newcommand{\FIXME}[1]{\@FIXMEnote{#1}\@DRAFTwatermark}
+
+\newcommand{\@TODOhighlight}[1]{\colorbox{yellow}{#1}}
+\newcommand{\@TODOmarker}{\@inlinemarker{TODO}{red}}
+\newcommand{\@TODOnote}[1]{\@TODOmarker\@TODOhighlight{#1}}
+\newcommand{\TODO}[1]{\@TODOnote{#1}\@DRAFTwatermark}
+
+\newcommand{\CITE}{\TODO{CITE}}
+
+
