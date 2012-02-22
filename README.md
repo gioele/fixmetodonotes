@@ -9,7 +9,7 @@ Installation
 
     export TEXMFHOME=~/.texmf
     mkdir -p ~/.texmf/tex/latex/
-    cd ~/.texmf/text/latex/
+    cd ~/.texmf/tex/latex/
     git clone git://github.com/gioele/fixmetodonotes.git
 
 
