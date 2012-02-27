@@ -23,16 +23,17 @@
   }%
 }
 
-\newcommand{\@marginmarker}[2]{\marginpar{\fbox{\color{#2}\textbf{#1}}}}
-\newcommand{\@inlinemarker}[2]{\fbox{\color{#2}\textbf{#1}}}
+\newcommand{\NOTES@marker}[2]{\fbox{\color{#2}\textbf{#1}}}
+\newcommand{\NOTES@marginmarker}[2]{\marginpar{\NOTES@marker{#1}{#2}}}
+\newcommand{\NOTES@inlinemarker}[2]{\NOTES@marker{#1}{#2}}
 
 \newcommand{\@FIXMEhighlight}[1]{\uwave{#1}}
-\newcommand{\@FIXMEmarker}{\@marginmarker{FIXME}{red}}
+\newcommand{\@FIXMEmarker}{\NOTES@marginmarker{FIXME}{red}}
 \newcommand{\@FIXMEnote}[1]{\@FIXMEmarker\@FIXMEhighlight{#1}}
 \newcommand{\FIXME}[1]{\@FIXMEnote{#1}\@DRAFTwatermark}
 
 \newcommand{\@TODOhighlight}[1]{\colorbox{yellow}{#1}}
-\newcommand{\@TODOmarker}{\@inlinemarker{TODO}{red}}
+\newcommand{\@TODOmarker}{\NOTES@inlinemarker{TODO}{red}}
 \newcommand{\@TODOnote}[1]{\@TODOmarker\@TODOhighlight{#1}}
 \newcommand{\TODO}[1]{\@TODOnote{#1}\@DRAFTwatermark}
 
