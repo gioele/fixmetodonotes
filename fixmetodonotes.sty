@@ -37,6 +37,9 @@
 \newcommand{\@TODOnote}[1]{\@TODOmarker\@TODOhighlight{#1}}
 \newcommand{\TODO}[1]{\@TODOnote{#1}\@DRAFTwatermark}
 
-\newcommand{\CITE}{\TODO{CITE}}
+\newcommand{\NOTES@CITEhighlight}[1]{\colorbox{cyan}{#1}}
+\newcommand{\NOTES@CITEmarker}{\NOTES@inlinemarker{CITE}{red}}
+\newcommand{\NOTES@CITEnote}[1]{\NOTES@CITEmarker\NOTES@CITEhighlight{#1}}
+\newcommand{\CITE}[1]{\NOTES@CITEnote{#1}\@DRAFTwatermark}
 
 
