@@ -7,6 +7,10 @@
 \RequirePackage{watermark}
 \RequirePackage{fix-cm}
 \RequirePackage[normalem]{ulem}
+\RequirePackage[titles]{tocloft}
+
+\newcommand{\listnotesname}{List of notes}
+\newlistof{note}{notes}{\listnotesname}
 
 \newcommand{\@HUGE}{\fontsize{100}{120}\selectfont}
 \newcommand{\@wmstyle}{\color{red}\transparent{0.1}\@HUGE}
@@ -27,19 +31,28 @@
 \newcommand{\NOTES@marginmarker}[2]{\marginpar{\NOTES@marker{#1}{#2}}}
 \newcommand{\NOTES@inlinemarker}[2]{\NOTES@marker{#1}{#2}}
 
+\newcommand{\NOTES@addtolist}[2]{%
+  \refstepcounter{note}%
+  \phantomsection%
+  \addcontentsline{notes}{note}{\protect\numberline{\thenote}{{#1}: {#2}}}%
+}
+
+\newcommand{\NOTES@FIXMEaddtolist}[1]{\NOTES@addtolist{FIXME}{#1}}
 \newcommand{\@FIXMEhighlight}[1]{\uwave{#1}}
 \newcommand{\@FIXMEmarker}{\NOTES@marginmarker{FIXME}{red}}
-\newcommand{\@FIXMEnote}[1]{\@FIXMEmarker\@FIXMEhighlight{#1}}
+\newcommand{\@FIXMEnote}[1]{\@FIXMEmarker\@FIXMEhighlight{#1}\NOTES@FIXMEaddtolist{#1}}
 \newcommand{\FIXME}[1]{\@FIXMEnote{#1}\@DRAFTwatermark}
 
+\newcommand{\NOTES@TODOaddtolist}[1]{\NOTES@addtolist{TODO}{#1}}
 \newcommand{\@TODOhighlight}[1]{\colorbox{yellow}{#1}}
 \newcommand{\@TODOmarker}{\NOTES@inlinemarker{TODO}{red}}
-\newcommand{\@TODOnote}[1]{\@TODOmarker\@TODOhighlight{#1}}
+\newcommand{\@TODOnote}[1]{\@TODOmarker\@TODOhighlight{#1}\NOTES@TODOaddtolist{#1}}
 \newcommand{\TODO}[1]{\@TODOnote{#1}\@DRAFTwatermark}
 
+\newcommand{\NOTES@CITEaddtolist}[1]{\NOTES@addtolist{CITE}{#1}}
 \newcommand{\NOTES@CITEhighlight}[1]{\colorbox{cyan}{#1}}
 \newcommand{\NOTES@CITEmarker}{\NOTES@inlinemarker{CITE}{red}}
-\newcommand{\NOTES@CITEnote}[1]{\NOTES@CITEmarker\NOTES@CITEhighlight{#1}}
+\newcommand{\NOTES@CITEnote}[1]{\NOTES@CITEmarker\NOTES@CITEhighlight{#1}\NOTES@CITEaddtolist{#1}}
 \newcommand{\CITE}[1]{\NOTES@CITEnote{#1}\@DRAFTwatermark}
 
 
