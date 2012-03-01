@@ -26,6 +26,13 @@
   }%
 }
 
+
+\newcommand{\NOTES@colorline}[1]{%
+  \bgroup%
+    \markoverwith{\textcolor{#1}{\rule[-0.2\baselineskip]{2pt}{\baselineskip}}}%
+    \ULon%
+}
+
 \newcommand{\NOTES@marker}[2]{\fbox{\color{#2}\textbf{#1}}}
 \newcommand{\NOTES@marginmarker}[2]{\marginpar{\NOTES@marker{#1}{#2}}}
 \newcommand{\NOTES@inlinemarker}[2]{\NOTES@marker{#1}{#2}}
@@ -48,5 +55,5 @@
 }
 
 \defnote{FIXME}{margin}{\uwave}
-\defnote{TODO}{inline}{\colorbox{yellow}}
-\defnote{CITE}{inline}{\colorbox{cyan}}
+\defnote{TODO}{inline}{\NOTES@colorline{yellow}}
+\defnote{CITE}{inline}{\NOTES@colorline{cyan}}
