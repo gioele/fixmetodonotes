@@ -29,6 +29,12 @@ or
 
     \TODO{add a playful picture}
 
+To show a list of pending notes, together with links to their pages, use
+
+    \listofnote
+
+The list of notes will be shown like a table of content or a list of figures.
+
 
 Authors
 -------
