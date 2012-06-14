@@ -13,7 +13,7 @@ In the preamble add
 
 In the document write notes using
 
-    I believe that in the \FIXME{"next year" or "the future"?} the revolution
+    I believe that in the \FIXME{"next year" or "future"?} the revolution
     will not be televised.
 
 or
