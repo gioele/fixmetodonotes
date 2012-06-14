@@ -4,15 +4,6 @@ fixmetodonotes
 A LaTeX package to highlight and manage FIXME and TODO annotations.
 
 
-Installation
-------------
-
-    export TEXMFHOME=~/.texmf
-    mkdir -p ~/.texmf/tex/latex/
-    cd ~/.texmf/tex/latex/
-    git clone git://github.com/gioele/fixmetodonotes.git
-
-
 Usage
 -----
 
@@ -34,6 +25,25 @@ To show a list of pending notes, together with links to their pages, use
     \listofnote
 
 The list of notes will be shown like a table of content or a list of figures.
+
+
+Installation
+------------
+
+The released archives can be installed using the standard LaTeX mechanism.
+
+    latex fixmetodonotes.ins
+
+This will generate a `fixmetodonotes.sty` file that can be moved to a
+directory searched by TeX.
+
+You can also install `fixmetodonotes` in your home directory using the
+git repository.
+
+    export TEXMFHOME=~/.texmf
+    mkdir -p ~/.texmf/tex/latex/
+    cd ~/.texmf/tex/latex/
+    git clone git://github.com/gioele/fixmetodonotes.git
 
 
 Authors
