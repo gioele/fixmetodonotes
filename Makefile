@@ -1,7 +1,7 @@
 .DEFAULT: all
 .PHONY: all dist clean
 
-TARGET_FILES = README fixmetodonotes.sty LICENSE
+TARGET_FILES = README fixmetodonotes.ins fixmetodonotes.dtx LICENSE
 
 GIT_VERSION = $(shell git for-each-ref --sort='-*authordate' --format='%(tag) %(*authordate:short)' refs/tags | head -n 1)
 VERSION = $(shell echo $(GIT_VERSION) | cut -d ' ' -f 1 | sed -e 's/^v//')
@@ -20,8 +20,11 @@ $(ARCHIVE_DIR):
 $(ARCHIVE_DIR)/README: README.md | $(ARCHIVE_DIR)
 	cp $< $@
 
-$(ARCHIVE_DIR)/fixmetodonotes.sty: fixmetodonotes.sty | $(ARCHIVE_DIR)
+$(ARCHIVE_DIR)/fixmetodonotes.dtx: fixmetodonotes.sty | $(ARCHIVE_DIR)
 	sed -e '2s#$$#[$(VERSION_INFO)]#' $< >| $@
+
+$(ARCHIVE_DIR)/fixmetodonotes.ins: fixmetodonotes.ins | $(ARCHIVE_DIR)
+	cp $< $@
 
 $(ARCHIVE_DIR)/LICENSE: LICENSE | $(ARCHIVE_DIR)
 	cp $< $@
