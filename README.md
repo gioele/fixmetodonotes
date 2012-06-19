@@ -29,7 +29,7 @@ The list of notes will be shown like a table of content or a list of figures.
 
 ### Creating new kinds of notes
 
-In `fixmetodonotes` ships with three kinds of notes: `FIXME`, `TODO` and
+By default, `fixmetodonotes` provides three kinds of notes: `FIXME`, `TODO` and
 `CITE`.
 
 It is possible to add declare new kinds of notes using the `\defnote`
