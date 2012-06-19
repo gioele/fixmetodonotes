@@ -1,10 +1,19 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{fixmetodonotes}
 
+
+\newif\if@watermark \@watermarktrue
+
+\DeclareOption{watermark}{} % default
+\DeclareOption{nowatermark}{\@watermarkfalse}
+
+\ProcessOptions\relax
+
+
 \RequirePackage{graphicx}
 \RequirePackage{color}
 \RequirePackage{transparent}
-\RequirePackage{watermark}
+\if@watermark\RequirePackage{watermark}\fi
 \RequirePackage{fix-cm}
 \RequirePackage[normalem]{ulem}
 \RequirePackage[titles]{tocloft}
@@ -50,7 +59,7 @@
     \NOTES@usemarker{#2}{#1}%
     #3{##1}%
     \NOTES@addtolist{#1}{##1}%
-    \@DRAFTwatermark%
+    \if@watermark\@DRAFTwatermark\fi%
   }%
 }
 

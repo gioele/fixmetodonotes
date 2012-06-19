@@ -54,6 +54,8 @@ When all the notes are removed from a page, the watermark will not be produced
 at all. This means that it is possible to leave `fixmetodonotes` enabled even
 in final versions of the documents.
 
+Use the `nowatermark` option to disable all watermarks.
+
 
 Installation
 ------------
