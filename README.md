@@ -27,6 +27,24 @@ To show a list of pending notes, together with links to their pages, use
 The list of notes will be shown like a table of content or a list of figures.
 
 
+### Creating new kinds of notes
+
+In `fixmetodonotes` ships with three kinds of notes: `FIXME`, `TODO` and
+`CITE`.
+
+It is possible to add declare new kinds of notes using the `\defnote`
+command. Notes can be declared as _margin_ or _inline_ notes. It is also
+possible to specify new ways to mark the text.
+
+To define a new kind of note marginal note `REMOVE` with crossed out text use
+
+    \defnote{REMOVE}{margin}{\sout}
+
+Similarly, to define a red highlight marker `STYLE` use
+
+    \defnote{STYLE}{inline}{\NOTES@colorline{red}}
+
+
 Installation
 ------------
 
@@ -44,6 +62,13 @@ git repository.
     mkdir -p ~/.texmf/tex/latex/
     cd ~/.texmf/tex/latex/
     git clone git://github.com/gioele/fixmetodonotes.git
+
+
+Contact
+-------
+
+The homepage of `fixmetodonotes` is <https://github.com/gioele/fixmetodonotes>.
+You can send any issue or comment to <https://github.com/gioele/fixmetodonotes/issues>.
 
 
 Authors
