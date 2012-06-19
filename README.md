@@ -45,6 +45,16 @@ Similarly, to define a red highlight marker `STYLE` use
     \defnote{STYLE}{inline}{\NOTES@colorline{red}}
 
 
+### Automatic "DRAFT" watermark
+
+`fixmetodonotes` will add a "DRAFT" watermark to any page that has at least
+one notes.
+
+When all the notes are removed from a page, the watermark will not be produced
+at all. This means that it is possible to leave `fixmetodonotes` enabled even
+in final versions of the documents.
+
+
 Installation
 ------------
 
