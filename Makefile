@@ -12,6 +12,8 @@ ARCHIVE_DIR = fixmetodonotes-$(VERSION)
 ARCHIVE = fixmetodonotes-$(VERSION).tar.gz
 ARCHIVE_FILES = $(addprefix $(ARCHIVE_DIR)/,$(TARGET_FILES))
 
+TAR = tar --owner=root --group=root
+
 all: dist
 
 $(ARCHIVE_DIR):
@@ -30,7 +32,7 @@ $(ARCHIVE_DIR)/LICENSE: LICENSE | $(ARCHIVE_DIR)
 	cp $< $@
 
 $(ARCHIVE): $(ARCHIVE_FILES)
-	tar -caf $(ARCHIVE) $(ARCHIVE_DIR)
+	$(TAR) -caf $(ARCHIVE) $(ARCHIVE_DIR)
 
 dist: $(ARCHIVE)
 
