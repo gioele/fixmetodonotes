@@ -25,10 +25,7 @@ $(ARCHIVE_DIR)/README: README.md | $(ARCHIVE_DIR)
 $(ARCHIVE_DIR)/fixmetodonotes.dtx: fixmetodonotes.sty | $(ARCHIVE_DIR)
 	sed -e '2s#$$#[$(VERSION_INFO)]#' $< >| $@
 
-$(ARCHIVE_DIR)/fixmetodonotes.ins: fixmetodonotes.ins | $(ARCHIVE_DIR)
-	cp $< $@
-
-$(ARCHIVE_DIR)/LICENSE: LICENSE | $(ARCHIVE_DIR)
+$(ARCHIVE_DIR)/%: % | $(ARCHIVE_DIR)
 	cp $< $@
 
 $(ARCHIVE): $(ARCHIVE_FILES)
