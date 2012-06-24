@@ -19,17 +19,22 @@ all: dist
 $(ARCHIVE_DIR):
 	mkdir $(ARCHIVE_DIR)
 
+fixmetodonotes.sty.versioned: fixmetodonotes.sty
+	sed -e '2s#$$#[$(VERSION_INFO)]#' $< >| $@
+
+$(ARCHIVE_DIR)/fixmetodonotes.dtx: fixmetodonotes.sty.versioned | $(ARCHIVE_DIR)
+	mv $< $@
+
 $(ARCHIVE_DIR)/README: README.md | $(ARCHIVE_DIR)
 	cp $< $@
-
-$(ARCHIVE_DIR)/fixmetodonotes.dtx: fixmetodonotes.sty | $(ARCHIVE_DIR)
-	sed -e '2s#$$#[$(VERSION_INFO)]#' $< >| $@
 
 $(ARCHIVE_DIR)/%: % | $(ARCHIVE_DIR)
 	cp $< $@
 
 $(ARCHIVE): $(ARCHIVE_FILES)
 	$(TAR) -caf $(ARCHIVE) $(ARCHIVE_DIR)
+
+.INTERMEDIATE: fixmetodonotes.sty.versioned
 
 dist: $(ARCHIVE)
 
