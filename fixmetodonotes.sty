@@ -26,7 +26,7 @@
 \newcommand{\listnotesname}{List of notes}
 \newlistof{note}{notes}{\listnotesname}
 
-\ifx \@NOTES@enabled \false
+\if@NOTES@enabled\else
   \renewcommand{\listofnote}{}
 \fi
 
