@@ -24,11 +24,9 @@
 \RequirePackage[titles]{tocloft}
 
 \newcommand{\listnotesname}{List of notes}
-\newlistof{note}{notes}{\listnotesname}
+\newlistof{NOTES@note}{notes}{\listnotesname}
 
-\if@NOTES@enabled\else
-  \renewcommand{\listofnote}{}
-\fi
+\newcommand{\listofnotes}{\if@NOTES@enabled\listofNOTES@note\fi}
 
 \newcommand{\@HUGE}{\fontsize{100}{120}\selectfont}
 \newcommand{\@wmstyle}{\color{red}\transparent{0.1}\@HUGE}
@@ -58,9 +56,9 @@
 \newcommand{\NOTES@usemarker}[2]{\csname NOTES@#1marker\endcsname{#2}{red}}
 
 \newcommand{\NOTES@addtolist}[2]{%
-  \refstepcounter{note}%
+  \refstepcounter{NOTES@note}%
   \phantomsection%
-  \addcontentsline{notes}{note}{\protect\numberline{\thenote}{{#1}: {#2}}}%
+  \addcontentsline{notes}{NOTES@note}{\protect\numberline{\theNOTES@note}{{#1}: {#2}}}%
 }
 
 \newcommand{\NOTES@defnoteimpl}[4]{%

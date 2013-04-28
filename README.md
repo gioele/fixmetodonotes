@@ -22,7 +22,7 @@ or
 
 To show a list of pending notes, together with links to their pages, use
 
-    \listofnote
+    \listofnotes
 
 The list of notes will be shown like a table of content or a list of figures.
 
