@@ -36,7 +36,8 @@ It is possible to add declare new kinds of notes using the `\defnote`
 command. Notes can be declared as _margin_ or _inline_ notes. It is also
 possible to specify new ways to mark the text.
 
-To define a new kind of note marginal note `REMOVE` with crossed out text use
+To define a new kind of note called `REMOVE` that displays a margin note
+and crosses out the text, use
 
     \defnote{REMOVE}{margin}{\sout}
 
